@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Alura_tr_mobile1</string>
+
+
+    <string name="nome">Nome</string>
+    <string name="categoria">Categoria</string>
+    <string name="valor">Valor</string>
+
+</resources>
