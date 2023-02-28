@@ -1,5 +1,6 @@
 package com.example.alura_tr_mobile1
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.alura_tr_mobile1.databinding.ActivityMainBinding
@@ -35,5 +36,11 @@ class MainActivity : AppCompatActivity() {
                 BigDecimal("899.99")),
             
         ))
+
+        val intent = Intent(this, cadastroActivity::class.java)
+
+        binding.FAB.setOnClickListener{
+            startActivity(intent)
+        }
     }
 }
