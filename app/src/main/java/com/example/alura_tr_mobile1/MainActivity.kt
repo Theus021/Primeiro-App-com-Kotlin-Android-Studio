@@ -30,10 +30,6 @@ class MainActivity : AppCompatActivity() {
                 "Hawai 40",
                 "celular",
                 BigDecimal("3499.99")),
-            ProdutosModel(
-                "moto g 5 plus",
-                "celular",
-                BigDecimal("899.99")),
             
         ))
 
