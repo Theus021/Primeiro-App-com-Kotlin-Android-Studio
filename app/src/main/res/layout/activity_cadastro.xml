@@ -34,6 +34,7 @@
       app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nome"/>
@@ -48,6 +49,7 @@
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textCategoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Categoria" />
@@ -63,10 +65,11 @@
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textValor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Valor"
-        android:inputType="number"/>
+        android:inputType="numberDecimal"/>
   </com.google.android.material.textfield.TextInputLayout>
 
   <Button
@@ -78,7 +81,6 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

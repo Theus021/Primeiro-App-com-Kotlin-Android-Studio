@@ -3,9 +3,9 @@ package com.example.alura_tr_mobile1
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.alura_tr_mobile1.dao.ProdutosDao
 import com.example.alura_tr_mobile1.databinding.ActivityMainBinding
 import com.example.alura_tr_mobile1.model.ProdutosModel
-import java.math.BigDecimal
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,28 +15,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
 
+    override fun onResume() {
+        super.onResume()
         val recyclerView = binding.recycleListView
-        recyclerView.adapter = ProdutosAdapter(listOf(
-            ProdutosModel(
-                "Iphone 12",
-                "Celular",
-                BigDecimal("4999.99")),
-            ProdutosModel(
-                "Samsung m30",
-                "celular",
-                BigDecimal("1499.99")),
-            ProdutosModel(
-                "Hawai 40",
-                "celular",
-                BigDecimal("3499.99")),
-            
-        ))
-
+        val dao = ProdutosDao()
+        dao.buscaTodos()
+        recyclerView.adapter = ProdutosAdapter(dao.buscaTodos())
         val intent = Intent(this, cadastroActivity::class.java)
 
         binding.FAB.setOnClickListener{
             startActivity(intent)
         }
+
     }
 }
