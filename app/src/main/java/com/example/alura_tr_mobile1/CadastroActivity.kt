@@ -54,6 +54,30 @@ class CadastroActivity : AppCompatActivity() {
         binding.imageView2.setOnClickListener {
             showDialog()
         }
+    }private fun showDialog(){
+        val build = AlertDialog.Builder(this)
+        val dialogBinding = DialogDeProdutosBinding.inflate(layoutInflater)
+
+        dialogBinding.confirmarBtn.setOnClickListener {
+            val url = dialogBinding.inputUrl.text.toString()
+            dialogBinding.imageDoDialog.load(url)
+        }
+
+        build.setView(dialogBinding.root)
+
+
+            .setPositiveButton("confirmar"){_,_, ->
+                url = dialogBinding.inputUrl.text.toString()
+                binding.imageView2.load(url)
+            }
+
+            .setNegativeButton("cancelar"){_,_, ->
+                dialog.dismiss()
+            }
+
+        dialog = build.create()
+        dialog.show()
+
     }
 
 }
