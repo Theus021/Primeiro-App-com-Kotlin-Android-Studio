@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.alura_tr_mobile1.dao.ProdutosDao
 import com.example.alura_tr_mobile1.databinding.ActivityMainBinding
-import com.example.alura_tr_mobile1.model.ProdutosModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,11 +22,10 @@ class MainActivity : AppCompatActivity() {
         val dao = ProdutosDao()
         dao.buscaTodos()
         recyclerView.adapter = ProdutosAdapter(dao.buscaTodos())
-        val intent = Intent(this, cadastroActivity::class.java)
+        val intent = Intent(this, CadastroActivity::class.java)
 
         binding.FAB.setOnClickListener{
             startActivity(intent)
         }
-
     }
 }

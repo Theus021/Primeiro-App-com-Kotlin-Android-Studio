@@ -5,5 +5,6 @@ import java.math.BigDecimal
 data class ProdutosModel(
     var nome: String,
     var categoria: String,
-    var valor: BigDecimal
+    var valor: BigDecimal,
+    var imagem: String?
 )
