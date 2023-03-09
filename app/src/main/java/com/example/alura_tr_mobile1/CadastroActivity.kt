@@ -1,5 +1,6 @@
 package com.example.alura_tr_mobile1
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ class CadastroActivity : AppCompatActivity() {
     private lateinit var dialog: AlertDialog
     private var url: String? = null
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCadastroBinding.inflate(layoutInflater)
@@ -61,8 +63,14 @@ class CadastroActivity : AppCompatActivity() {
 
         dialogBinding.confirmarBtn.setOnClickListener {
             val url = dialogBinding.inputUrl.text.toString()
-            dialogBinding.imageDoDialog.load(url){
-                placeholder(R.drawable.avatar)
+
+            if (url.isNullOrEmpty()){
+                Toast.makeText(applicationContext, "Digite uma URL válida", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                dialogBinding.imageDoDialog.load(url){
+                    placeholder(R.drawable.avatar)
+                }
             }
         }
 
@@ -73,6 +81,7 @@ class CadastroActivity : AppCompatActivity() {
                 url = dialogBinding.inputUrl.text.toString()
                 binding.imageView2.load(url){
                     placeholder(R.drawable.avatar)
+                    fallback(R.drawable.avatar)
                 }
             }
 

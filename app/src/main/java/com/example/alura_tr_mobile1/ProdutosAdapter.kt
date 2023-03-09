@@ -3,6 +3,7 @@ package com.example.alura_tr_mobile1
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.alura_tr_mobile1.databinding.ProdutosListItemBinding
 import com.example.alura_tr_mobile1.model.ProdutosModel
 
@@ -22,6 +23,7 @@ class ProdutosAdapter(produtosModel: List<ProdutosModel>) : RecyclerView.Adapter
         holder.binding.textNome.text = produtosModel.nome
         holder.binding.textCategoria.text = produtosModel.categoria
         holder.binding.textValor.text = produtosModel.valor.toPlainString()
+        holder.binding.imageView.load(produtosModel.imagem)
     }
 
     override fun getItemCount(): Int = produtosModel.size
