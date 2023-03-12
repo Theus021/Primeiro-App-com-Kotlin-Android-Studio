@@ -68,7 +68,8 @@ class CadastroActivity : AppCompatActivity() {
             }
             else{
                 dialogBinding.imageDoDialog.load(url){
-                    placeholder(R.drawable.avatar)
+                    fallback(R.drawable.avatar)
+                    error(R.drawable.avatar)
                 }
             }
         }
@@ -79,8 +80,9 @@ class CadastroActivity : AppCompatActivity() {
             .setPositiveButton("confirmar"){_,_, ->
                 url = dialogBinding.inputUrl.text.toString()
                 binding.imageView2.load(url){
-                    placeholder(R.drawable.avatar)
+                    error(R.drawable.avatar)
                     fallback(R.drawable.avatar)
+
                 }
             }
 
