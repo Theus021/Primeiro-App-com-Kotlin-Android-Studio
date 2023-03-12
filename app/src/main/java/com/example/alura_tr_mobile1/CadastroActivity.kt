@@ -1,17 +1,17 @@
 package com.example.alura_tr_mobile1
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import com.example.alura_tr_mobile1.dao.ProdutosDao
 import com.example.alura_tr_mobile1.databinding.ActivityCadastroBinding
 import com.example.alura_tr_mobile1.databinding.DialogDeProdutosBinding
 import com.example.alura_tr_mobile1.model.ProdutosModel
 import java.math.BigDecimal
+import java.text.NumberFormat
+import java.util.*
 
 class CadastroActivity : AppCompatActivity() {
 
@@ -19,7 +19,6 @@ class CadastroActivity : AppCompatActivity() {
     private lateinit var dialog: AlertDialog
     private var url: String? = null
 
-    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCadastroBinding.inflate(layoutInflater)

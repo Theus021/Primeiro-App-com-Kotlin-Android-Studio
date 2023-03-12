@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.alura_tr_mobile1.databinding.ProdutosListItemBinding
 import com.example.alura_tr_mobile1.model.ProdutosModel
+import java.math.BigDecimal
+import java.text.NumberFormat
+import java.util.*
 
 class ProdutosAdapter(produtosModel: List<ProdutosModel>) : RecyclerView.Adapter<ProdutosAdapter.produtosVH>() {
 
@@ -22,8 +25,13 @@ class ProdutosAdapter(produtosModel: List<ProdutosModel>) : RecyclerView.Adapter
 
         holder.binding.textNome.text = produtosModel.nome
         holder.binding.textCategoria.text = produtosModel.categoria
-        holder.binding.textValor.text = produtosModel.valor.toPlainString()
+        holder.binding.textValor.text = valorEmModeda(produtosModel.valor)
         holder.binding.imageView.load(produtosModel.imagem)
+    }
+
+    private fun valorEmModeda(valor: BigDecimal): String? {
+        val formador = NumberFormat.getCurrencyInstance(Locale("PT", "BR"))
+        return formador.format(valor)
     }
 
     override fun getItemCount(): Int = produtosModel.size
