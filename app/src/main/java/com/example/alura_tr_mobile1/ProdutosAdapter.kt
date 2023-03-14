@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.alura_tr_mobile1.databinding.ProdutosListItemBinding
+import com.example.alura_tr_mobile1.extension.tentaCarregarImagem
 import com.example.alura_tr_mobile1.model.ProdutosModel
 import java.math.BigDecimal
 import java.text.NumberFormat
@@ -26,7 +27,7 @@ class ProdutosAdapter(produtosModel: List<ProdutosModel>) : RecyclerView.Adapter
         holder.binding.textNome.text = produtosModel.nome
         holder.binding.textCategoria.text = produtosModel.categoria
         holder.binding.textValor.text = valorEmModeda(produtosModel.valor)
-        holder.binding.imageView.load(produtosModel.imagem)
+        holder.binding.imageView.tentaCarregarImagem(produtosModel.imagem)
     }
 
     private fun valorEmModeda(valor: BigDecimal): String? {
