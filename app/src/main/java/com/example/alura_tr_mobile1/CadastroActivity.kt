@@ -8,6 +8,7 @@ import coil.load
 import com.example.alura_tr_mobile1.dao.ProdutosDao
 import com.example.alura_tr_mobile1.databinding.ActivityCadastroBinding
 import com.example.alura_tr_mobile1.databinding.DialogDeProdutosBinding
+import com.example.alura_tr_mobile1.dialog.FormularioDialog
 import com.example.alura_tr_mobile1.extension.tentaCarregarImagem
 import com.example.alura_tr_mobile1.model.ProdutosModel
 import java.math.BigDecimal
@@ -17,7 +18,6 @@ import java.util.*
 class CadastroActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCadastroBinding
-    private lateinit var dialog: AlertDialog
     private var url: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,44 +55,12 @@ class CadastroActivity : AppCompatActivity() {
 
     private fun mostrarDialog(){
         binding.imageView2.setOnClickListener {
-            showDialog()
-
-        }
-    }
-
-    private fun showDialog(ulrPadrao : String? = null){
-        val build = AlertDialog.Builder(this)
-        val dialogBinding = DialogDeProdutosBinding.inflate(layoutInflater)
-
-
-        dialogBinding.confirmarBtn.setOnClickListener {
-            val url = dialogBinding.inputUrl.text.toString()
-            if (url.isNullOrEmpty()){
-                Toast.makeText(applicationContext, "Digite uma URL válida", Toast.LENGTH_SHORT).show()
-            }
-            else{
-                dialogBinding.imageDoDialog.tentaCarregarImagem(url)
-            }
-        }
-
-        build.setView(dialogBinding.root)
-
-
-            .setPositiveButton("confirmar"){_,_, ->
-                url = dialogBinding.inputUrl.text.toString()
+            FormularioDialog(this).showDialog { imagem ->
+                url = imagem
                 binding.imageView2.tentaCarregarImagem(url)
+
             }
 
-            .setNegativeButton("cancelar"){_,_, ->
-                dialog.dismiss()
-            }
-
-        dialog = build.create()
-        dialog.show()
-
-
-
-
+        }
     }
-
 }
