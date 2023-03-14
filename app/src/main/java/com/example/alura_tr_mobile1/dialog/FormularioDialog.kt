@@ -12,10 +12,15 @@ class FormularioDialog (private val context: Context) {
 
     private lateinit var dialog: AlertDialog
 
-     fun showDialog(quandoCarregada:(imagem:String) -> Unit){
+     fun showDialog(urlPadrao: String? = null, quandoCarregada:(imagem:String) -> Unit){
 
         val build = AlertDialog.Builder(context)
         val dialogBinding = DialogDeProdutosBinding.inflate(LayoutInflater.from(context))
+
+         urlPadrao?.let {
+             dialogBinding.imageDoDialog.tentaCarregarImagem(it)
+             dialogBinding.inputUrl.setText(it)
+         }
 
 
         dialogBinding.confirmarBtn.setOnClickListener {

@@ -55,7 +55,8 @@ class CadastroActivity : AppCompatActivity() {
 
     private fun mostrarDialog(){
         binding.imageView2.setOnClickListener {
-            FormularioDialog(this).showDialog { imagem ->
+            FormularioDialog(this)
+                .showDialog(url) { imagem ->
                 url = imagem
                 binding.imageView2.tentaCarregarImagem(url)
 
