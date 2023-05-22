@@ -1,1 +1,1 @@
-# Primeira App Alura
+# Primeiro App em Kotlin/ Android Studio
